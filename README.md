@@ -127,7 +127,7 @@ e PRs não saem. **MCPs recomendados** (ID32 — configure na sua IDE): **Figma*
 ## Documentação Técnica
 
 - [PRD](docs/prd.md) · [Architecture/SSD](docs/architecture.md) · [Checklist](docs/checklist.md)
-- **Protótipo (Stitch/Figma):** [link público]
+- **Protótipo (Stitch/Figma):** [Abrir protótipo no Stitch](https://stitch.google.com/projects/328477196056609722) — Início (Home), Listagem de caronas, Oferecer uma carona e Detalhes da viagem.
 
 ## Modelagem de Dados (Diagrama ER)
 
@@ -138,7 +138,7 @@ erDiagram
 ## Stack
 
 - **Frontend:** Angular [versão]
-- **Framework CSS:** [Tailwind, PrimeNG, …]
+- **Framework CSS:** Tailwind CSS
 - **Dados:** json-server (MVP/E2) → [Supabase, PocketBase, …] (E3)
 - **Bibliotecas:** [lista]
 
