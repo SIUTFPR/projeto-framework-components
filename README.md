@@ -127,24 +127,51 @@ e PRs não saem. **MCPs recomendados** (ID32 — configure na sua IDE): **Figma*
 ## Documentação Técnica
 
 - [PRD](docs/prd.md) · [Architecture/SSD](docs/architecture.md) · [Checklist](docs/checklist.md)
-- **Protótipo (Stitch/Figma):** [link público]
+- **Protótipo (Stitch/Figma):** [Abrir protótipo no Stitch](https://stitch.google.com/projects/328477196056609722) — Início (Home), Listagem de caronas, Oferecer uma carona e Detalhes da viagem.
 
 ## Modelagem de Dados (Diagrama ER)
 
 ```mermaid
 erDiagram
+    STUDENT_PROFILE ||--o{ RIDE : drives
+    STUDENT_PROFILE ||--o{ RIDE_PARTICIPANT : joins
+    RIDE ||--o{ RIDE_PARTICIPANT : has
+
+    STUDENT_PROFILE {
+        uuid id PK
+        string display_name
+    }
+    RIDE {
+        uuid id PK
+        uuid driver_id FK
+        string origin
+        string destination
+        datetime departure_at
+        int seat_capacity
+        string status
+        datetime created_at
+    }
+    RIDE_PARTICIPANT {
+        uuid id PK
+        uuid ride_id FK
+        uuid passenger_id FK
+        string status
+        datetime joined_at
+        datetime cancelled_at
+    }
 ```
 
 ## Stack
 
-- **Frontend:** Angular [versão]
-- **Framework CSS:** [Tailwind, PrimeNG, …]
-- **Dados:** json-server (MVP/E2) → [Supabase, PocketBase, …] (E3)
-- **Bibliotecas:** [lista]
+- **Frontend:** Angular 22+
+- **Framework CSS:** Tailwind CSS
+- **Dados:** json-server (MVP/E2) → Supabase Auth + Postgres com RLS (E3)
+- **Bibliotecas:** `@supabase/supabase-js` (somente autenticação E3), Vitest,
+  angular-eslint e Prettier
 
 ## Em produção
 
-- **Aplicação:** [URL no Vercel/Render]
+- **Aplicação:** Vercel — URL de produção a definir
 
 ## Instruções de Execução
 
